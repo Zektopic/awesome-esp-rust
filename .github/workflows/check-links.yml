@@ -3,12 +3,16 @@ name: Check Links
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   link-checker:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, manupa-hnx]
     steps:
       - uses: actions/checkout@v3
+
+      - name: Configure Git safe directory
+        run: git config --global --add safe.directory '*'
 
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.5.0
