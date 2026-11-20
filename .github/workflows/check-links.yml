@@ -1,5 +1,8 @@
 name: Check Links
 
+permissions:
+  contents: read
+
 on:
   push:
   pull_request:
@@ -9,7 +12,7 @@ jobs:
   link-checker:
     runs-on: [self-hosted, manupa-hnx]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: Configure Git safe directory
         run: git config --global --add safe.directory '*'

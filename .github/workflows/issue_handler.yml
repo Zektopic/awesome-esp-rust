@@ -1,5 +1,8 @@
 name: Add new issues to project
 
+permissions:
+  issues: write
+
 on:
   issues:
     types:
